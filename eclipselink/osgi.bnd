@@ -1,0 +1,11 @@
+#-----------------------------------------------------------------
+# Use this file to add customized Bnd instructions for the bundle
+#-----------------------------------------------------------------
+
+Bundle-Activator: ${bundle.namespace}.Activator
+
+Export-Package: ${bundle.namespace}
+
+Import-Package: org.osgi*, \
+	javax.persistence*;version="1.1.0", \
+	org.eclipse.persistence.jpa

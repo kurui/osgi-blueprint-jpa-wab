@@ -1,0 +1,11 @@
+#-----------------------------------------------------------------
+# Use this file to add customized Bnd instructions for the bundle
+#-----------------------------------------------------------------
+
+Bundle-Blueprint: OSGI-INF/blueprint/blueprint.xml	
+
+Export-Package:
+
+Import-Package: javax.sql, \
+	org.apache.derby.jdbc
+

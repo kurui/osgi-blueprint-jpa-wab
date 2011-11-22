@@ -1,0 +1,14 @@
+#-----------------------------------------------------------------
+# Use this file to add customized Bnd instructions for the bundle
+#-----------------------------------------------------------------
+
+Bundle-Activator: ${bundle.namespace}.internal.Activator
+
+Export-Package: ${bundle.namespace}
+
+Import-Package: org.osgi*, \
+	com.chinarewards.test.domain, \
+	com.chinarewards.test.eclipselink, \
+	javax.persistence;version="1.1.0";jpa="2.0", \
+	org.osgi.service.jndi;version="[1.0,2.0)"
+	

@@ -1,0 +1,15 @@
+#-----------------------------------------------------------------
+# Use this file to add customized Bnd instructions for the bundle
+#-----------------------------------------------------------------
+
+Private-Package: 
+
+Export-Package: ${bundle.namespace}.*;version="${pom.version}"
+
+Import-Package: javax.persistence;version="1.1.0";jpa="2.0", \
+	org.osgi.service.jndi; version="[1.0,2.0)"	
+
+JPA-PersistenceUnits: testjpa
+
+Meta-Persistence: META-INF/persistence.xml
+
