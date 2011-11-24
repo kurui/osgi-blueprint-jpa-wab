@@ -51,6 +51,7 @@
     <module>eclipselink</module>
     <module>client</module>
     <module>datasource</module>
+    <module>web</module>
   </modules>
 
   <build>
@@ -74,7 +75,8 @@
           -->
           <provision>
             <param>--platform=felix</param>
-            <param>--profiles=aries.blueprint</param>
+            <param>--profiles=aries.blueprint,web,war</param>
+            <param>--bootDelegation=javax.*,com.sun.*,sun.*</param>
             <param>mvn:org.osgi/org.osgi.compendium/4.2.0</param>
             <param>mvn:org.osgi/org.osgi.enterprise/4.2.0</param>
             <param>mvn:org.apache.geronimo.specs/geronimo-jpa_2.0_spec/1.1</param>

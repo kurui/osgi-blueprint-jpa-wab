@@ -11,10 +11,4 @@
 		<property name="emf" ref="entityManagerFactory" />
 	</bean>
 
-	<service id="testService" ref="exampleService" interface="com.chinarewards.test.client.ExampleService">
-		<service-properties>
-			<entry key="osgi.jndi.service.name" value="testService" />
-		</service-properties>
-	</service>
-
 </blueprint>

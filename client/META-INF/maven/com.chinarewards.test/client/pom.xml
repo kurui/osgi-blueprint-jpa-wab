@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<parent>
+		<relativePath>../poms/compiled/</relativePath>
+		<groupId>com.chinarewards.test.build</groupId>
+		<artifactId>compiled-bundle-settings</artifactId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+
+	<properties>
+		<bundle.symbolicName>com.chinarewards.test.client</bundle.symbolicName>
+		<bundle.namespace>com.chinarewards.test.client</bundle.namespace>
+	</properties>
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.chinarewards.test</groupId>
+	<artifactId>client</artifactId>
+	<version>1.0-SNAPSHOT</version>
+
+	<name>${bundle.symbolicName}</name>
+
+	<packaging>bundle</packaging>
+
+	<dependencies>
+		<!-- | uncomment to add all imported (non-local) bundles to your compilation 
+			classpath <dependency> <type>pom</type> <groupId>${parent.groupId}</groupId> 
+			<artifactId>provision</artifactId> <optional>true</optional> </dependency> -->
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>osgi_R4_core</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>osgi_R4_compendium</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.enterprise</artifactId>
+			<version>4.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.geronimo.specs</groupId>
+			<artifactId>geronimo-jpa_2.0_spec</artifactId>
+			<version>1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.chinarewards.test</groupId>
+			<artifactId>domain</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.chinarewards.test</groupId>
+			<artifactId>eclipselink</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+	</dependencies>
+
+</project>

@@ -24,12 +24,13 @@ public final class ExampleServiceImpl implements ExampleService {
 	public void setEmf(EntityManagerFactory emf) {
 		System.out.println("Setting EMF: " + emf);
 		this.emf = emf;
-		Example ex = new Example();
-		emf.createEntityManager().persist(ex);
-		System.out.println("Example ID: " + ex.getId());
 	}
 
 	public String scramble(String text) {
+		Example ex = new Example();
+		emf.createEntityManager().persist(ex);
+		System.out.println("Example ID: " + ex.getId());
+
 		List charList = new ArrayList();
 
 		char[] textChars = text.toCharArray();

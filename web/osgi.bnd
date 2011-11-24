@@ -1,0 +1,12 @@
+#-----------------------------------------------------------------
+# Use this file to add customized Bnd instructions for the bundle
+#-----------------------------------------------------------------
+
+Web-ContextPath: /test
+
+Webapp-Context: /test
+
+Bundle-Module: com.chinarewards.test.web.internal.Module
+
+Bundle-ClassPath: .,WEB-INF/classes
+

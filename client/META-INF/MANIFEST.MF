@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Export-Package: com.chinarewards.test.client
+Private-Package: com.chinarewards.test.client.internal
+Built-By: kmtong
+Tool: Bnd-0.0.255
+Bundle-Name: com.chinarewards.test.client
+Created-By: Apache Maven Bundle Plugin
+Build-Jdk: 1.6.0_29
+Bundle-Version: 1.0.0.SNAPSHOT
+Bnd-LastModified: 1322057657460
+Bundle-ManifestVersion: 2
+Bundle-Activator: com.chinarewards.test.client.internal.Activator
+Bundle-Description: Generated using Pax-Construct
+Import-Package: com.chinarewards.test.domain;version="1.0.0.SNAPSHOT",
+ com.chinarewards.test.eclipselink,javax.persistence;jpa="2.0";version
+ ="1.1.0",org.osgi.framework,org.osgi.service.jndi;version="[1.0,2.0)"
+Bundle-SymbolicName: com.chinarewards.test.client
+
