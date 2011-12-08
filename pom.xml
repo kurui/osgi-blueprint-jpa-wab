@@ -74,6 +74,7 @@
            | some example Pax-Runner settings
           -->
           <provision>
+            <param>--vmOptions=-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005</param>
             <param>--platform=felix</param>
             <param>--profiles=aries.blueprint,web,war</param>
             <param>--bootDelegation=javax.*,com.sun.*,sun.*</param>
@@ -93,7 +94,6 @@
             <param>mvn:org.apache.aries.jpa/org.apache.aries.jpa.api/0.3</param>
             <param>mvn:org.apache.aries.jpa/org.apache.aries.jpa.container/0.3</param>
             <param>mvn:org.apache.aries.transaction/org.apache.aries.transaction.manager/0.3</param>
-            <!--param>mvn:org.apache.aries.jndi/org.apache.aries.jndi/0.3</param-->
             <param>mvn:org.apache.aries.jndi/org.apache.aries.jndi.api/0.3</param>
             <param>mvn:org.apache.aries.jndi/org.apache.aries.jndi.core/0.3</param>
             <param>mvn:org.apache.aries.jndi/org.apache.aries.jndi.url/0.3</param>
