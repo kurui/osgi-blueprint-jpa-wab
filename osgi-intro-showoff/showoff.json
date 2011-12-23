@@ -1,0 +1,12 @@
+{ "name": "OSGi介绍",
+"sections": [
+  {"section":"intro"},
+  {"section":"bundle"},
+  {"section":"service"},
+  {"section":"jpa"},
+  {"section":"web"},
+  {"section":"tool"},
+  {"section":"provision"},
+  {"section":"demo"},
+  {"section":"qa"}
+]}
