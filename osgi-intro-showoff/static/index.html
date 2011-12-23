@@ -1,0 +1,567 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>OSGi介绍</title>
+
+  <meta name="viewport" content="width=device-width"/>
+
+  <link rel="stylesheet" href="./css/reset.css" type="text/css"/>
+  <link rel="stylesheet" href="./css/showoff.css" type="text/css"/>
+
+  <script type="text/javascript" src="./js/jquery-1.4.2.min.js"></script>
+  <script type="text/javascript" src="./js/jquery.cycle.all.js"></script>
+	<script type="text/javascript" src="./js/jquery-print.js"></script>
+  <script type="text/javascript" src="./js/jquery.batchImageLoad.js"></script>
+
+  <script type="text/javascript" src="./js/jquery.doubletap-0.1.js"></script>
+
+  <script type="text/javascript" src="./js/fg.menu.js"></script>
+  <script type="text/javascript" src="./js/showoff.js"></script>
+  <script type="text/javascript" src="./js/jTypeWriter.js"> </script>
+  <script type="text/javascript" src="./js/sh_main.min.js"></script>
+  <script type="text/javascript" src="./js/core.js"></script>
+  <script type="text/javascript" src="./js/showoffcore.js"></script>
+  <script type="text/javascript" src="./js/coffee-script.js"></script>
+
+  <link type="text/css" href="./css/fg.menu.css" media="screen" rel="stylesheet" />
+  <link type="text/css" href="./css/theme/ui.all.css" media="screen" rel="stylesheet" />
+  <link type="text/css" href="./css/sh_style.css" rel="stylesheet" >
+
+  
+
+  
+
+  <script type="text/javascript">
+  $(function(){
+      setupPreso(false, './');
+  });
+  </script>
+
+</head>
+
+<body>
+
+<a tabindex="0" href="#search-engines" class="fg-button fg-button-icon-right ui-widget ui-state-default ui-corner-all" id="navmenu"><span class="ui-icon ui-icon-triangle-1-s"></span>slides</a>
+<div id="navigation" class="hidden"></div>
+
+<div id="help">
+  <table>
+    <tr><td class="key">z, ?</td><td>toggle help (this)</td></tr>
+    <tr><td class="key">space, &rarr;</td><td>next slide</td></tr>
+    <tr><td class="key">shift-space, &larr;</td><td>previous slide</td></tr>
+    <tr><td class="key">d</td><td>toggle debug mode</td></tr>
+    <tr><td class="key">## &lt;ret&gt;</td><td>go to slide #</td></tr>
+    <tr><td class="key">c, t</td><td>table of contents (vi)</td></tr>
+    <tr><td class="key">f</td><td>toggle footer</td></tr>
+    <tr><td class="key">r</td><td>reload slides</td></tr>
+    <tr><td class="key">n</td><td>toggle notes</td></tr>
+    <tr><td class="key">p</td><td>run preshow</td></tr>
+  </table>
+</div>
+
+<div class="buttonNav">
+  <input type="submit" onClick="prevStep();" value="prev"/>
+  <input type="submit" onClick="nextStep();" value="next"/>
+</div>
+
+<div id="preso">loading presentation...</div>
+<div id="footer">
+  <span id="slideInfo"></span>
+  <span id="debugInfo"></span>
+  <span id="notesInfo"></span>
+</div>
+
+<div id="slides" class="offscreen" style="display:none;">
+<div class="slide" data-transition="none"><div class="content bullets" ref="intro/01_intro/1">
+<h1>OSGi&#x4ECB;&#x7ECD;</h1>
+
+<ul>
+<li>IT&#x90E8;&#x5185;&#x90E8;&#x57F9;&#x8BAD;: 2011-12-21</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="intro/01_intro/2">
+<h1>OSGi&#x662F;&#x4EC0;&#x4E48;&#xFF1F;</h1>
+
+<ul>
+<li>Open Services Gateway initiative framework</li>
+<li>&#x7EC4;&#x4EF6;&#x6A21;&#x578B; Module System</li>
+<li>&#x670D;&#x52A1;&#x5E73;&#x53F0; Service Platform</li>
+<li>&#x662F;Java&#x4ECE;&#x6765;&#x6CA1;&#x6709;&#x5B9A;&#x4E49;&#x8FC7;&#x7684;</li>
+<li>&#x5BB9;&#x5668;</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="intro/01_intro/3">
+<h1>OSGi&#x4E3A;&#x4EC0;&#x4E48;&#xFF1F;</h1>
+
+<ul>
+<li>&#x76F4;&#x63A5;&#x539F;&#x56E0;
+
+<ul>
+<li>ClassLoader&#x95EE;&#x9898;</li>
+<li>&#x52A8;&#x6001;&#x670D;&#x52A1;</li>
+<li>&#x8FD0;&#x884C;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#xFF08;Maven&#x662F;&#x7F16;&#x8BD1;&#x9700;&#x8981;&#x7684;&#x4F9D;&#x8D56;&#xFF09;</li>
+<li>&#x5347;&#x7EA7;&#x7EF4;&#x62A4;</li>
+</ul>
+</li>
+<li>&#x95F4;&#x63A5;&#x539F;&#x56E0;
+
+<ul>
+<li>&#x8F6F;&#x4EF6;&#x67B6;&#x6784;&#x5206;&#x5C42;</li>
+</ul>
+</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="intro/01_intro/4">
+<h1>OSGi&#x6709;&#x4EC0;&#x4E48;&#xFF1F;</h1>
+
+<ul>
+<li>Framework
+
+<ul>
+<li>&#x76F8;&#x5F53;&#x4E8E;&#x5BB9;&#x5668;</li>
+</ul>
+</li>
+<li>Bundles
+
+<ul>
+<li>&#x6709;&#x7279;&#x522B;MANIFEST&#x4FE1;&#x606F;&#x7684;JAR</li>
+<li>BundleActivator</li>
+</ul>
+</li>
+<li>Services
+
+<ul>
+<li>&#x53D1;&#x5E03;&#x81EA;&#x8EAB;&#x63D0;&#x4F9B;&#x7684;&#x670D;&#x52A1;</li>
+<li>&#x5F15;&#x5165;&#x5176;&#x4ED6;Bundle&#x63D0;&#x4F9B;&#x7684;&#x670D;&#x52A1;</li>
+</ul>
+</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="intro/02_basic/1">
+<h1>OSGi&#x57FA;&#x672C;&#x8FD0;&#x884C;&#x73AF;&#x5883;</h1>
+
+<ul>
+<li>&#x5E38;&#x7528;&#x7684;&#x6709;&#xFF1A;Equinox, Felix, Knopflerfish</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="intro/02_basic/2">
+<h1>Framework&#x4F8B;&#x5B50;</h1>
+
+<p><strong> Download: http://felix.apache.org/site/downloads.cgi </strong></p>
+
+<pre><code> $ java -jar bin/felix.jar
+ ____________________________
+ Welcome to Apache Felix Gogo
+
+ g! install &lt;url&gt;
+ g! start &lt;bundle ID&gt;
+</code></pre>
+
+<ul>
+<li>&#x6709;&#x5174;&#x8DA3;&#x53EF;&#x4EE5;&#x770B;&#xFF1A;<code>conf/config.properties</code></li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="bundle/01_bundle/1">
+<h1>Bundle&#x57FA;&#x672C;&#x7ED3;&#x6784;</h1>
+
+<ul>
+<li>&#x666E;&#x901A;&#x7684;JAR&#x6587;&#x4EF6;</li>
+<li>META-INF/MANIFEST.MF</li>
+<li>Bundle-Name: &#x7EC4;&#x4EF6;&#x7684;&#x552F;&#x4E00;&#x6807;&#x8BC6;</li>
+<li>Bundle-Version: &#x7EC4;&#x4EF6;&#x7684;&#x7248;&#x672C;&#x53F7;</li>
+<li><p>Export-Package: &#x5BF9;&#x4E8E;&#x5305;&#x88C5;&#x91CC;&#x9762;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x4EC0;&#x4E48;&#x9700;&#x8981;&#x5F00;&#x653E;</p>
+
+<pre class="sh_java smaller"><code>  Bundle-ManifestVersion: 2
+  Bundle-Name: com.chinarewards.test.client
+  Bundle-Version: 1.0.0
+  Export-Package: com.chinarewards.test.client</code></pre></li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="bundle/01_bundle/2">
+<h1>Bundle&#x7684;&#x4F9D;&#x8D56;</h1>
+
+<ul>
+<li><p>&#x4F9D;&#x8D56;&#x5176;&#x4ED6;&#x7EC4;&#x4EF6;&#x7684;Export-Package</p>
+
+<pre class="sh_java smaller"><code>  Import-Package: com.chinarewards.test.domain</code></pre></li>
+<li><p>&#x6216;&#x8005;&#x9700;&#x8981;&#x51C6;&#x786E;&#x7248;&#x672C;&#x53F7;&#x7684;</p>
+
+<pre class="sh_java smaller"><code>  Import-Package: com.chinarewards.test.domain;version="1.0.0"</code></pre></li>
+<li><p>&#x6216;&#x8005;&#x9700;&#x8981;&#x67D0;&#x4E2A;&#x7248;&#x672C;&#x53F7;&#x8303;&#x56F4;&#x7684;</p>
+
+<pre class="sh_java smaller"><code>  Import-Package: com.chinarewards.test.domain;version="[1.0.0-2.0.0)"</code></pre></li>
+<li><p>&#x7528;&#x9017;&#x53F7;&#x5206;&#x9694;&#x591A;&#x4E2A;&#x4F9D;&#x8D56;</p></li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="bundle/01_bundle/3">
+<h1>Bundle Activator</h1>
+
+<ul>
+<li><p>META-INF/MANIFEST.MF</p>
+
+<pre class="sh_java smaller"><code>  Bundle-Activator: com.chinarewards.test.client.internal.Activator</code></pre></li>
+<li><p>Java&#x4EE3;&#x7801;&#xFF08;BundleContext&#x662F;&#x552F;&#x4E00;&#x8DDF;Framework&#x6C9F;&#x901A;&#x7684;&#x5BF9;&#x8C61;&#xFF09;</p>
+
+<pre class="sh_java smaller"><code>  import org.osgi.framework.BundleActivator;
+  import org.osgi.framework.BundleContext;
+
+  public class Activator implements BundleActivator {
+    // Return ASAP
+    public void start(BundleContext context) throws Exception {
+      System.out.println("Bundle Started!");
+    }
+    // Return ASAP
+    public void stop(BundleContext context) throws Exception {
+      System.out.println("Bundle Stopped!");
+    }
+  }</code></pre></li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="service/01_service/1">
+<h1>Service&#x6982;&#x5FF5;</h1>
+
+<ul>
+<li>&#x63D0;&#x4F9B;&#x65B9;&#xFF1A;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x5728;&#x5BB9;&#x5668;&#x4E2D;&#xFF0C;&#x7B49;&#x5F85;&#x88AB;&#x8C03;&#x7528;</li>
+<li>&#x4F7F;&#x7528;&#x65B9;&#xFF1A;&#x5728;&#x5BB9;&#x5668;&#x4E2D;&#x67E5;&#x627E;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x63A5;&#x53E3;&#xFF0C;&#x8C03;&#x7528;&#x5176;&#x65B9;&#x6CD5;</li>
+<li>&#x4F8B;&#x5982;&#xFF1A;
+
+<ul>
+<li>&#x63D0;&#x4F9B;&#x65B9;P&#xFF1A;&#x63D0;&#x4F9B;<code>ValidationService</code></li>
+<li>&#x4F7F;&#x7528;&#x65B9;C&#xFF1A;<code>lookup(ValidationService.class)</code></li>
+</ul>
+</li>
+<li>&#x65E7;&#x6709;&#x7684;&#x5B9E;&#x73B0;&#x5982;J2EE&#x7684;JNDI&#x67E5;&#x627E;SessionBean&#x3001;&#x8C03;&#x7528;</li>
+<li>&#x95EE;&#x9898;&#xFF1A;&#x4F7F;&#x7528;&#x65B9;C &#x76F4;&#x63A5;&#x4F9D;&#x8D56; &#x63D0;&#x4F9B;&#x65B9;P</li>
+<li>&#x89E3;&#x51B3;&#x529E;&#x6CD5;&#xFF1A;API Bundle &#xFF08;Stable-Dependency-Principle&#xFF09;</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="service/01_service/2">
+<h1>Service API Bundle</h1>
+
+<ul>
+<li>&#x63A5;&#x53E3;&#x6A21;&#x5757;A (Bundle)&#xFF1A;
+
+<ul>
+<li>&#x63D0;&#x4F9B;<code>IValidationService</code></li>
+</ul>
+</li>
+<li>&#x63D0;&#x4F9B;&#x65B9;P (Bundle)&#xFF0C;&#x4F9D;&#x8D56;A&#xFF1A;
+
+<ul>
+<li>&#x63D0;&#x4F9B;<code>ValidationService</code>&#x5B9E;&#x73B0;<code>IValidationService</code></li>
+</ul>
+</li>
+<li>&#x4F7F;&#x7528;&#x65B9;C (Bundle)&#xFF0C;&#x4F9D;&#x8D56;A&#xFF1A;
+
+<ul>
+<li><code>lookup(IValidationService.class)</code></li>
+</ul>
+</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="service/01_service/3">
+<h1>OSGi Service</h1>
+
+<ul>
+<li><p>ServiceReference</p>
+
+<pre class="sh_java smaller"><code>  context.getServiceReference(IValidationService.class);</code></pre></li>
+<li><p>ServiceTracker</p>
+
+<pre class="sh_java smaller"><code>  ServiceTracker st;
+
+  public void start(BundleContext context) throws Exception {
+          st = new ServiceTracker(context,
+          IValidationService.class.getName(), null);
+          st.open();
+  }
+  public void stop(BundleContext context) throws Exception {
+          st.close();
+  }</code></pre></li>
+<li><p>&#x597D;&#x7D2F;&#xFF01;</p></li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="service/02_peaberry/1">
+<h1>Peaberry&#xFF1A;Guice&#x65B9;&#x5F0F;</h1>
+
+<ul>
+<li><p>META-INF/MANIFEST.MF &#xFF08;&#x7528;&#x4E86;&#x5B83;&#x81EA;&#x5B9A;&#x4E49;&#x7684;Header&#xFF09;</p>
+
+<pre class="sh_java small"><code>  Bundle-Module: com.chinarewards.test.internal.Module</code></pre></li>
+<li><p>Guice Module</p>
+
+<pre class="sh_java smaller"><code>  import static org.ops4j.peaberry.Peaberry.service;
+  import static org.ops4j.peaberry.util.TypeLiterals.export;
+
+  protected void configure() {
+          /* Import, Single Instance */
+          bind(S.class).toProvider(service(S.class).single());
+          /* Import, Multiple Implementations */
+          bind(iterable(A.class)).toProvider(
+                  service(A.class).multiple());
+          /* Export */
+          bind(export(A.class)).toProvider(service(aImpl).export());
+  }</code></pre></li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="service/02_peaberry/2">
+<h1>&#x8DDF;Guice&#x4E0D;&#x662F;&#x4E00;&#x6837;&#x5417;&#xFF1F;</h1>
+
+<ul>
+<li><p>Guice</p>
+
+<ul>
+<li>JAR A&#x5B9A;&#x4E49;&#x63A5;&#x53E3;</li>
+<li>JAR B&#x5B9A;&#x4E49;&#x5B9E;&#x73B0;</li>
+<li>Main JAR C&#x8981;&#x6C42;&#x6CE8;&#x5165;&#x5B9E;&#x73B0;
+
+<ul>
+<li>Module&#x9700;&#x8981;&#x83B7;&#x5F97; JAR B &#x91CC;&#x7684;&#x5B9E;&#x73B0;&#x7C7B;</li>
+<li>JAR C &#x9700;&#x8981;&#x4F9D;&#x8D56; JAR B</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Peaberry</p>
+
+<ul>
+<li>Bundle A&#x5B9A;&#x4E49;&#x63A5;&#x53E3;</li>
+<li>Bundle B&#x5B9A;&#x4E49;&#x5B9E;&#x73B0;&#xFF0C;<strong>&#x5E76;&#x516C;&#x5F00;&#x670D;&#x52A1;</strong></li>
+<li>Bundle C&#x8981;&#x6C42;&#x6CE8;&#x5165;&#x63A5;&#x53E3;</li>
+</ul>
+</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="service/03_blueprint/1">
+<h1>Blueprint</h1>
+
+<ul>
+<li>&#x6E90;&#x81EA;Spring</li>
+<li>OSGi Enterprise Spec 4.2</li>
+<li>OSGI-INF/blueprint/blueprint.xml (&#x53EF;&#x53D8;)</li>
+<li>&#x5E76;&#x4E0D;&#x662F;&#x7EAF;&#x7CB9;OSGi Framework&#x53EF;&#x4EE5;&#x6EE1;&#x8DB3;</li>
+<li>&#x8FD8;&#x8981;&#x7279;&#x522B;&#x7684;Profile/Extension</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="service/03_blueprint/2">
+<h1>Service Provider</h1>
+
+<ul>
+<li><p>OSGI-INF/blueprint/blueprint.xml</p>
+
+<pre class="sh_xml smaller"><code>  &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+  &lt;blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      default-activation="eager"&gt;
+
+      &lt;!-- &#x5B9A;&#x4E49;&#x4E00;&#x4E2A; POJO Bean --&gt;
+      &lt;bean id="exampleServiceImpl"
+        class="com.chinarewards.test.client.internal.ExampleServiceImpl"&gt;
+      &lt;/bean&gt;
+
+      &lt;!-- Export Service Bean --&gt;
+      &lt;service id="exampleService" ref="exampleServiceImpl" 
+        interface="com.chinarewards.test.client.ExampleService"&gt;
+      &lt;/service&gt;
+  &lt;/blueprint&gt;</code></pre></li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="service/03_blueprint/3">
+<h1>Service Consumer</h1>
+
+<ul>
+<li><p>OSGI-INF/blueprint/blueprint.xml</p>
+
+<pre class="sh_xml smaller"><code>  &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+  &lt;blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      default-activation="eager"&gt;
+
+      &lt;reference id="otherService"
+          interface="com.chinarewards.test.client.ExampleService"/&gt;
+
+      &lt;bean id="myBean"
+          class="com.chinarewards.test.client.internal.Consumer"&gt;
+          &lt;property name="example" ref="otherService" /&gt;
+      &lt;/bean&gt;
+
+  &lt;/blueprint&gt;</code></pre></li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="service/03_blueprint/4">
+<h1>&#x8DDF;Spring&#x4E0D;&#x662F;&#x4E00;&#x6837;&#x5417;?</h1>
+
+<ul>
+<li><p>Spring</p>
+
+<ul>
+<li>JAR A&#x5B9A;&#x4E49;&#x63A5;&#x53E3;</li>
+<li>JAR B&#x5B9A;&#x4E49;&#x5B9E;&#x73B0;</li>
+<li>Main JAR C&#x8981;&#x6C42;&#x6CE8;&#x5165;&#x5B9E;&#x73B0;
+
+<ul>
+<li>XML&#x9700;&#x8981;&#x77E5;&#x9053; JAR B &#x91CC;&#x7684;&#x5B9E;&#x73B0;&#x7C7B;</li>
+<li>&#x800C;&#x4E14;&#x5B9A;&#x4E49;&#x5728; JAR C &#x5305;&#x91CC;&#x9762;</li>
+<li>JAR C &#x5728;&#x65E0;&#x5F62;&#x4E2D;&#x9700;&#x8981;&#x4F9D;&#x8D56; JAR B</li>
+<li>&#x867D;&#x7136;&#x4EE5; XML &#x5F62;&#x5F0F;&#x51FA;&#x73B0;</li>
+<li>ClassLoader C &#x8981;&#x5229;&#x7528; ClassLoader B &#x52A0;&#x8F7D; JAR B &#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x6216;&#x8005;&#x6839;&#x672C;&#x662F;&#x540C;&#x4E00;&#x4E2A;CL</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Blueprint</p>
+
+<ul>
+<li>Bundle A&#x5B9A;&#x4E49;&#x63A5;&#x53E3;</li>
+<li>Bundle B&#x5B9A;&#x4E49;&#x5B9E;&#x73B0;&#xFF0C;<strong>&#x5E76;&#x516C;&#x5F00;&#x670D;&#x52A1;</strong></li>
+<li>Bundle C&#x8981;&#x6C42;&#x6CE8;&#x5165;&#x63A5;&#x53E3;</li>
+</ul>
+</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="jpa/01_jpa/1">
+<h1>OSGi&#x4E0E;JPA</h1>
+
+<ul>
+<li>JPA&#x4F20;&#x7EDF;&#x505A;&#x6CD5;
+
+<ul>
+<li>Domain/Model JAR &#x5305;&#x542B; META-INF/persistence.xml</li>
+<li>Client/Logic JAR &#x52A0;&#x8F7D;&#x3001;&#x5F15;&#x7528; EntityManagerFactory/EntityManager</li>
+<li>peristence.xml&#x53EF;&#x4EE5;&#x6709;&#x4EE5;&#x4E0B;&#x4EFB;&#x52A1;
+
+<ul>
+<li>&#x81EA;&#x5DF1;&#x53EB;&#x4EC0;&#x4E48;&#x540D;&#x5B57;</li>
+<li>&#x5B9A;&#x4E49;&#x6240;&#x6709;&#x7684;Entity&#x5BF9;&#x8C61;</li>
+<li>&#x58F0;&#x660E;&#x81EA;&#x5DF1;&#x9700;&#x8981;&#x4EC0;&#x4E48;<strong>&#x7C7B;&#x578B;</strong>(JTA, Resource-Local)&#x7684;DataSource</li>
+<li>&#x58F0;&#x660E;&#x81EA;&#x5DF1;&#x9700;&#x8981;&#x4EC0;&#x4E48;<strong>&#x540D;&#x5B57;</strong>(JNDI)&#x7684;DataSource</li>
+<li>&#x58F0;&#x660E;&#x81EA;&#x5DF1;&#x9700;&#x8981;&#x4EC0;&#x4E48;JDBC Connection Properties</li>
+<li>&#x751A;&#x81F3;&#x5B9A;&#x4E49;&#x81EA;&#x5DF1;&#x7528;&#x4EC0;&#x4E48;SQL&#x65B9;&#x8A00;</li>
+</ul>
+</li>
+<li>JPA&#x5B9E;&#x73B0;(&#x4F8B;&#x5982;Hibernate)&#x4F1A;&#x6839;&#x636E;persistence.xml&#x6765;&#x521B;&#x5EFA;EMF/EM</li>
+</ul>
+</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="jpa/01_jpa/2">
+<h1>JPA-OSGi&#x505A;&#x6CD5;</h1>
+
+<p><a href="http://wiki.eclipse.org/images/e/ee/OSGi_JPA_Spec_and_Gemini_JPA.pdf">Eclipse Intro - PDF</a></p>
+
+<p><a href="http://jazoon.com/Portals/0/Content/slides/we_a7_1630-1650_ward.pdf">Apache Aries Configuration with Blueprint</a></p></div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="jpa/01_jpa/3">
+<h1>JPA-OSGi&#x505A;&#x6CD5;</h1>
+
+<ul>
+<li>Persistence Bundle (Entity Beans, &#x5B9A;&#x4E49; Persistence-Unit)</li>
+<li>Client Bundle (&#x5F15;&#x7528; Persistence Bundle &#x7684;&#x903B;&#x8F91;)</li>
+<li>JPA Provider (EclipseLink &#x7B49; JPA &#x5B9E;&#x73B0;)</li>
+<li>DataSource Service Provider (&#x63D0;&#x4F9B;DataSource)</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="web/01_web/1">
+<h1>OSGi&#x4E0E;WebApp</h1>
+
+<ul>
+<li>&#x6A21;&#x62DF;&#x4F20;&#x7EDF;&#x505A;&#x6CD5;&#xFF1A;Web Application Bundle (WAB)
+
+<ul>
+<li>&#x7ED3;&#x6784;&#x8DDF; WAR &#x4E00;&#x6837;</li>
+<li>WEB-INF/lib &#x4E5F;&#x53EF;&#x4EE5;&#x4FDD;&#x7559;</li>
+<li>Bundle Header
+
+<ul>
+<li>Web-ContextPath: /my<em>context</em>path</li>
+<li>Webapp-Context: /my<em>context</em>path</li>
+<li>Bundle-ClassPath: .,WEB-INF/classes</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="web/01_web/2">
+<h1>WebApp&#x5F15;&#x7528;OSGi Service</h1>
+
+<ul>
+<li>OSGi Spring Integration (&#x7C7B;&#x4F3C;ContextLoaderListener)</li>
+<li>Guice-Servlet + Peaberry</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="tool/01_maven/1">
+<h1>Maven&#x4E0E;Bundle</h1>
+
+<ul>
+<li><a href="http://felix.apache.org/site/apache-felix-maven-bundle-plugin-bnd.html">org.apache.felix:maven-bundle-plugin</a></li>
+<li>&#x5C01;&#x88C5;&#x4E86; <a href="http://www.aqute.biz/Bnd/Bnd">Bnd</a></li>
+</ul>
+
+
+<h1>Maven&#x8FD0;&#x884C;OSGi&#x73AF;&#x5883;</h1>
+
+<ul>
+<li><a href="http://www.ops4j.org/projects/pax/construct/maven-pax-plugin/index.html">org.ops4j:maven-pax-plugin</a></li>
+<li><p>&#x5C01;&#x88C5;&#x4E86; <a href="http://www.ops4j.org/projects/pax/construct/">Pax-Construct</a></p>
+
+<pre class="sh_sh"><code>  $ mvn pax:run</code></pre></li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="tool/01_maven/2">
+<h1>Eclipse&#x4E0E;OSGi</h1>
+
+<ul>
+<li>Eclipse&#x662F;&#x4E13;&#x4E1A;&#x7684;OSGi&#x5F00;&#x53D1;&#x5DE5;&#x5177;</li>
+<li>&#x6240;&#x6709; Eclipse Plugin &#x90FD;&#x662F; OSGi Bundle</li>
+</ul>
+
+
+<h1>Eclipse + Maven + OSGi</h1>
+
+<pre class="sh_sh"><code>    $ mvn pax:eclipse</code></pre>
+
+<ul>
+<li>Eclipse &#x9879;&#x76EE;&#x591A;&#x4E86;&#x4E00;&#x4E2A; <strong>Plug-in Dependencies</strong></li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="tool/02_debug">
+<h1>Debugging</h1>
+
+<ul>
+<li>&#x5E94;&#x7528; Java Remote Debugging</li>
+<li><p>JVM Option:</p>
+
+<pre class="sh_java smaller"><code>  -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005</code></pre></li>
+</ul>
+
+
+<h1>Eclipse Remote Debugging</h1>
+
+<ul>
+<li>Debug Configurations --&gt; Remote Java Application</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="provision/01_todo">
+<h1>Provision</h1>
+
+<ul>
+<li>Provision = &#x628A;&#x6240;&#x6709;Bundle&#x5B89;&#x88C5;&#x542F;&#x52A8;&#xFF0C;&#x73AF;&#x5883;&#x642D;&#x597D;</li>
+<li><code>Import-Package: some.package;version="1.0"</code></li>
+<li>MANIFEST&#x641C;&#x7D22;(Export-Package)&#xFF1F;</li>
+<li>TODO (Operational)</li>
+<li>&#x5173;&#x952E;&#x5B57;: OBR (OSGi Bundle Repository)</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="demo/01_demo">
+<h1>Demo</h1></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="qa/01_qa">
+<h1>Questions?</h1>
+
+<p><a href="http://wiki.dev.jifen.cc/index.php/OSGi%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6">OSGi in WIKI</a></p></div>
+</div></div>
+
+</body>
+</html>
